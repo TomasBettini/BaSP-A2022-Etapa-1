@@ -12,6 +12,7 @@ a:visited{
 main {
     margin-top: 126px;
     margin-left: 397px;
+    border-bottom: 3px solid #AACE9B;
 }
 
 #header {
@@ -43,6 +44,14 @@ main {
     background-color: #D8E7EB;
     border: 1px solid #d6d6d6;
     border-radius: 50px;
+}
+
+#button-search {
+    position: absolute;
+    left: 582px;
+    right: 910px;
+    top: 54px;
+    bottom: 53px;
 }
 
 #sidebar {
@@ -83,6 +92,8 @@ main {
 }
 
 .sidebar-nav-list-item {
+    margin-left: -55px;
+    padding-left: 55px;
     padding-top: 36px;
     padding-bottom: 36px;
     border-bottom: 1px solid #cdcccc;
@@ -115,3 +126,128 @@ main {
     padding-bottom: 16px;
 }
 
+.title {
+    padding-left: 28px;
+    padding-top: 65px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 56px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: #373867;
+}
+
+.subtitle {
+    padding-left: 28px;
+    padding-top: 37px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 28px;
+    text-transform: uppercase;
+    color: #AACE9B;
+}
+
+.text {
+    width: 617px;
+    padding-left: 28px;
+    padding-top: 36px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 28px;
+    color: #373867;
+}
+
+.button {
+    margin-top: 36px;
+    margin-left: 28px;
+    padding: 27px 36px;
+    border: 3px solid #AACE9B;
+    border-radius: 5px;
+    background: #FFFFFF;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 18px;
+    color: #AACE9B;
+}
+
+#working {
+    position: absolute;
+    width: 458px;
+    height: 449px;
+    top: 191px;
+    left: 1019px;
+    right: 35px;
+}
+
+h3 {
+    width: fit-content;
+    padding-bottom: 13px;
+    border-bottom: 3px solid #AACE9B;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 38px;
+    color: #373867;
+}
+
+#features {
+    padding-left: 28px;
+    padding-top: 230px;
+}
+
+#image-database {
+    display: none;
+}
+
+.features-element {
+    display: inline-block;
+    width: 45%;
+}
+
+.features-element > p {
+    display: inline-block;
+    padding-left: 71px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 28px;
+    color: #373867;
+}
+
+.features-element > img {
+    display: inline-block;
+    padding-top: 30px;
+    height: 88.91px;
+}
+
+#why-use {
+    padding-left: 28px;
+    padding-top: 115px;
+    height: 331px;
+}
+
+#image-connectivity {
+    position: absolute;
+    padding-top: 45px;
+    width: 331px;
+    height: 241px;
+}
+
+#why-use-list {
+    padding-top: 45px;
+    padding-left: 498px;
+}
+
+#why-use-list li {
+    padding-bottom: 42px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 28px;
+    color: #373867;
+}

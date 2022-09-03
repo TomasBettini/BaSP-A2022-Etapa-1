@@ -15,6 +15,7 @@
         <header id="header">
             <p id="header-hamburger">&#8801</p>
             <input id="header-search" type="text">
+            <img id="button-search" src="../assets/img/Button Search.png" alt="Button Search">
         </header>
         <div id="sidebar">
             <div class="sidebar-elements">
@@ -49,36 +50,36 @@
                     <h2 class="subtitle">Time control that simplifies your business</h2>
                     <p class="text">The time control software to manage your employees time in the easiest, fastest and most intuitive way.</p>
                     <button class="button">Learn More</button>
-                    <img class="working"src="../assets/img/Foto Landing 1.jpg" alt="Working">
+                    <img id="working" src="../assets/img/Foto Landing 1.jpg" alt="Working">
                 </div>
             </section>
-            <section>
+            <section id="features">
                 <h3>Features</h3>
-                <div>
+                <div id="image-database">
                     <img src="../assets/img/Data Base.png" alt="DataBase">
                 </div>
-                <div>
+                <div class="features-element">
                     <img src="../assets/img/Hours.png" alt="Hours Log">
                     <p>Hours log</p>
                 </div>
-                <div>
-                    <img src="../assets/img/Search.png" alt="Resource Management">
-                    <p>Resource Management</p>
-                </div>
-                <div>
+                <div class="features-element">
                     <img src="../assets/img/Reports.png" alt="Reports">
                     <p>Reports</p>
                 </div>
-                <div>
+                <div class="features-element">
+                    <img src="../assets/img/Search.png" alt="Resource Management">
+                    <p>Resource Management</p>
+                </div>
+                <div class="features-element">
                     <img src="../assets/img/Group.png" alt="">
                     <p>Multiple Role</p>
                 </div>
             </section>
-            <section>
+            <section id="why-use">
                 <h3>Why use Trackgenix?</h3>
                 <div>
-                    <img src="../assets/img/Foto Landing 2.png" alt="Use Trackgenix">
-                    <ul>
+                    <img id="image-connectivity" src="../assets/img/Foto Landing 2.png" alt="Use Trackgenix">
+                    <ul id="why-use-list">
                         <li>Productivity booster</li>
                         <li>Work traceability</li>
                         <li>Leadership and team management</li>
@@ -86,16 +87,16 @@
                     </ul>
                 </div>
             </section>
-            <section>
+            <section id="form">
                 <h3>Ask for more information:</h3>
-                <form action="process.php" method="POST">
-                    <div>
+                <form action="process.php" method="POST" id="form-information">
+                    <div class="form-information-group">
                         <input type="text" placeholder="Name">
                     </div>
-                    <div>
+                    <div class="form-information-group">
                         <input type="text" placeholder="Email">
                     </div>
-                    <div>
+                    <div class="form-information-group">
                         <select name="category">
                             <option value="-Categories-">-Categories-</option>
                             <option value="Human resources">Human resources</option>
@@ -103,10 +104,10 @@
                             <option value="Commercialitazion">Commercialitazion</option>
                         </select>
                     </div>
-                    <div>
+                    <div class="form-information-group">
                         <textarea placeholder="Message"></textarea>
                     </div>
-                    <div>
+                    <div class="form-information-group">
                         <input type="submit" value="Cancel">
                         <input type="submit" value="Send">
                     </div>
