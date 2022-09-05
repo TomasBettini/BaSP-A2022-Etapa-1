@@ -17,7 +17,7 @@ We work on the creation of the index.html file.
 
 ### Week 03
 We add styles to the project creating css folder with this files:
-+ [reset.css](../BaSP-A2022-Etapa-1/Semana-03/css/reset.css) 
-+ [style.css](../BaSP-A2022-Etapa-1/Semana-03/css/style.css)
++ [reset.css](https://github.com/TomasBettini/BaSP-A2022-Etapa-1/blob/master/Semana-03/css/reset.css) 
++ [style.css](https://github.com/TomasBettini/BaSP-A2022-Etapa-1/blob/master/Semana-03/css/style.css)
 
 _By Tomas Bettini_
