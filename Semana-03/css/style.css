@@ -96,7 +96,7 @@ main {
     padding-left: 55px;
     padding-top: 36px;
     padding-bottom: 36px;
-    border-bottom: 1px solid #cdcccc;
+    border-bottom: 2px solid #cdcccc;
     font-size: 30px;
     font-weight: 400;
     line-height: 35px;
@@ -126,7 +126,7 @@ main {
     padding-bottom: 16px;
 }
 
-.title {
+#title {
     padding-left: 28px;
     padding-top: 65px;
     font-style: normal;
@@ -138,7 +138,7 @@ main {
     color: #373867;
 }
 
-.subtitle {
+#subtitle {
     padding-left: 28px;
     padding-top: 37px;
     font-style: normal;
@@ -149,7 +149,7 @@ main {
     color: #AACE9B;
 }
 
-.text {
+#text {
     width: 617px;
     padding-left: 28px;
     padding-top: 36px;
@@ -160,7 +160,7 @@ main {
     color: #373867;
 }
 
-.button {
+#button {
     margin-top: 36px;
     margin-left: 28px;
     padding: 27px 36px;
@@ -194,8 +194,8 @@ h3 {
 }
 
 #features {
-    padding-left: 28px;
-    padding-top: 230px;
+    margin-left: 28px;
+    margin-top: 230px;
 }
 
 #image-database {
@@ -204,11 +204,15 @@ h3 {
 
 .features-element {
     display: inline-block;
-    width: 45%;
+    position: relative;
+    width: 35%;
 }
 
 .features-element > p {
     display: inline-block;
+    position: absolute;
+    top: 45%;
+    width: 185px;
     padding-left: 71px;
     font-family: 'Roboto';
     font-style: normal;
@@ -218,6 +222,10 @@ h3 {
     color: #373867;
 }
 
+.features-element p:nth-child(0n+2) {
+    bottom: 20p;
+}
+
 .features-element > img {
     display: inline-block;
     padding-top: 30px;
@@ -225,28 +233,189 @@ h3 {
 }
 
 #why-use {
-    padding-left: 28px;
-    padding-top: 115px;
+    margin-left: 28px;
+    margin-top: 115px;
     height: 331px;
+}
+
+#why-use-content {
+    position: relative;
+    height: 100%;
 }
 
 #image-connectivity {
     position: absolute;
-    padding-top: 45px;
+    top: 45px;
     width: 331px;
     height: 241px;
 }
 
 #why-use-list {
-    padding-top: 45px;
-    padding-left: 498px;
+    position: absolute;
+    left: 458px;
+    top: 45px;
 }
 
 #why-use-list li {
     padding-bottom: 42px;
+    padding-left: 31px;
+    list-style-image: url("../../assets/img/WhyUseList.png");
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 700;
+    font-size: 24px;
+    line-height: 28px;
+    color: #373867;
+}
+
+#form {
+    margin-left: 28px;
+    margin-top: 142px;
+}
+
+#form-information {
+    padding-top: 39px;
+    width: 659px;
+}
+
+.form-information-group {
+    width: 100%;
+    padding-bottom: 30px;
+}
+
+.form-information-group input, .form-information-group textarea, .form-information-group select {
+    border: 2px solid #AACE9B;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.form-information-group input[type="text"], .form-information-group select {
+    width: 100%;
+    height: 49px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 28px;
+    color: #C4C4C4;
+    } 
+
+.form-information-group textarea {
+    padding-top: 10px;
+    width: 100%;
+    height: 203px;
+}
+
+.form-information-group select {
+    padding-left: 12px;
+}
+
+::placeholder {
+    padding-left: 12px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 28px;
+    color: #C4C4C4;
+  }
+
+#form-buttoms {
+    text-align: end;
+}
+
+#form-buttoms > input {
+    width: 135px;
+    height: 50px;
+}
+
+#cancel-buttom {
+    margin-right: 12px;
+    background: #FFFFFF;
+    border: 3px solid #AACE9B;
+    border-radius: 5px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 18px;
+    color: #AACE9B;
+}
+
+#send-buttom {
+    background: #AACE9B;
+    border: none;
+    border-radius: 5px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 18px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+#history {
+    margin-left: 28px;
+    margin-top: 208px;
+    height: 358px;
+}
+
+#history-elements {
+    width: 560px;
+    padding-top: 45px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 28px;
+    color: #373867;
+}
+
+#image-history {
+    position: absolute;
+    width: 456px;
+    height: 256px;
+    left: 1021px;
+    top: 2557px;
+    right: 35px;
+}
+
+#tablet-history {
+    display: none;
+}
+
+#final-section {
+    margin-left: 98px;
+    margin-top: 181px;
+    width: 900px;
+    height: 267px;
+}
+
+h4 {
+    padding-bottom: 30px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 28px;
+    color: #373867;
+}
+
+.products-company-support {
+	float:left;
+    padding-right: 100px;
+    padding-left: 42px;
+	border-right: 2px solid #909090;
+}
+
+.products-company-support:nth-last-child(1) {
+    border: 0;
+}
+
+.final-section-list {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
     font-size: 24px;
     line-height: 28px;
     color: #373867;
