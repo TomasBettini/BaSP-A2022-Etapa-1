@@ -15,4 +15,9 @@ The steps to perform are:
 ### Week 02
 We work on the creation of the index.html file.
 
+### Week 03
+We add styles to the project creating css folder with this files:
++ [reset.css](../BaSP-A2022-Etapa-1/Semana-03/css/reset.css) 
++ [style.css](../BaSP-A2022-Etapa-1/Semana-03/css/style.css)
+
 _By Tomas Bettini_
