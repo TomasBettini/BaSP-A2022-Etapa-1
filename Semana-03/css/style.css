@@ -420,3 +420,30 @@ h4 {
     line-height: 28px;
     color: #373867;
 }
+
+footer {
+    margin-left: 397px;
+    padding-bottom: 69px;
+    padding-top: 56px;
+}
+
+#footer-social {
+    text-align: center;
+}
+
+.footer-images {
+    padding-right: 21px;
+    width: 29px;
+    height: 29px;
+}
+
+#footer-text {
+    margin-top: 40px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 28px;
+    text-align: center;
+    color: #373867;
+}
