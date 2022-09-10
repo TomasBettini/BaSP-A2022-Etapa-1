@@ -1,0 +1,22 @@
+#why-use {
+    margin-left: 30px;
+}
+
+#why-use-content {
+    margin-top: 9px;
+    display: flex;
+}
+
+#why-use-list li {
+    padding-bottom: 20px;
+    list-style-image: url("../../assets/img/WhyUseList.png");
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    color: #373867;
+}
+
+#image-connectivity {
+    width: 130px;
+    height: 95px;
+}

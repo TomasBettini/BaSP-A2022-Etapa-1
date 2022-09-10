@@ -1,0 +1,24 @@
+#header {
+    display: flex;
+    position: fixed;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 30px;
+    background-color: #AACE9B;
+}
+
+#header img {
+    margin-left: 10px;
+}
+
+#header input {
+    margin: auto;
+    width: 150px;
+    height: 15px;
+    border: 1px solid #d6d6d6;
+    border-radius: 50px;
+    background: #FAFBFD url(../../assets/img/Button\ Search.png) no-repeat 5px center;
+    background-size: 8px 8px;
+    align-content: center;
+}

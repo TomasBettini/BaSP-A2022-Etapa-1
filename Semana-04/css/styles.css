@@ -1,0 +1,25 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 3vw;
+    line-height: 3vw;
+    color: #373867;
+}
+
+main {
+    border-bottom: 3px solid #AACE9B;
+}
+
+h3 {
+    width: fit-content;
+    padding-bottom: 5px;
+    border-bottom: 2px solid #AACE9B;
+    font-size: 4vw;
+    line-height: 4vw;
+    font-weight: 700;
+    color: #373867;
+}
+
