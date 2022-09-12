@@ -31,3 +31,18 @@ h4 {
     color: #C4C4C4;
   }
 
+@media (min-width: 834px) {
+    * {
+        font-size: 24px;
+        line-height: 28px;
+    }
+    h3 {
+        padding-bottom: 13px;
+        border-bottom: 3px solid #AACE9B;
+        font-size: 32px;
+        line-height: 37px;
+    }
+    h4 {
+        padding-bottom: 35px;
+    }
+}

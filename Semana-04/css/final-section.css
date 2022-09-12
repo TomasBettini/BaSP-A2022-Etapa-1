@@ -19,3 +19,19 @@
 .final-section-list:nth-last-child(1){
     border: 0;
 }
+
+@media (min-width: 834px) {
+    #final-section {
+        margin-top: 74px;
+        margin-bottom: 34px;
+    }
+    .final-section-list {
+        padding-left: 42px;
+        padding-right: 80px;
+        border-right: 2px solid #909090;
+    }
+    .final-section-list:nth-child(1) {
+        padding-left: 0;
+        padding-right: 60px;
+    }
+}

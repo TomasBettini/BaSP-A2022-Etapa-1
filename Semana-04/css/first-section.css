@@ -49,3 +49,30 @@
     height: 144px;
     margin-top: 5px;
 }
+
+@media (min-width: 834px) {
+    #first-section {
+        padding-top: 92px;
+    }
+    .title {
+        margin-top: 62px;
+        font-size: 68px;
+        line-height: 80px;
+    }
+    .subtitle {
+        margin-top: 18px;
+        font-size: 21px;
+        line-height: 24px;
+    }
+    .text {
+        width: 562px;
+        margin-top: 14px;
+        font-size: 30px;
+        line-height: 35px;
+    }
+    #working {
+        width: 196px;
+        height: 226px;
+        margin-top: 12px;
+    }
+}

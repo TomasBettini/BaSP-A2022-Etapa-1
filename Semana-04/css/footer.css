@@ -25,3 +25,20 @@ footer {
     line-height: 14px;
     color: #373867;
 }
+
+@media (min-width: 834px) {
+    footer {
+        height: 253px;
+    }
+    #footer-social img {
+        padding-right: 20px;
+        width: 29px;
+        height: 29px;
+    }
+    #footer-text {
+        margin-top: 40px;
+        font-size: 24px;
+        line-height: 28px;
+        color: #373867;
+    }
+}

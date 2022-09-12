@@ -23,3 +23,19 @@
     background-size: 8px 8px;
     align-content: center;
 }
+
+@media (min-width: 834px) {
+    #header {
+        height: 92px;
+    }
+    #header img {
+        width: 30px;
+        height: 30px;
+        margin-left: 33px;
+    }
+    #header input {
+        width: 377px;
+        height: 36px;
+        background-size: 20px 20px;
+    }
+}

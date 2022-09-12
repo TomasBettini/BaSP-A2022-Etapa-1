@@ -28,6 +28,31 @@
     box-sizing: content-box;
     padding: 12px;
     width: 15px;
-    border: solid 1px #AACE9B;
+    border: 1px solid #AACE9B;
     border-radius: 5px;
+}
+
+@media (min-width: 834px) {
+    #features {
+        margin-left: 39px;
+        margin-top: 67px;
+    }
+    #features-container {
+        margin-top: 30px;
+    }
+    .features-element {
+        width: 50%;
+        margin-bottom: 66px;
+    }
+    .features-element > p {
+        padding-left: 71px;
+    }
+    .features-element > img {
+        box-sizing: border-box;
+        padding: 26px;
+        width: 91px;
+        height: 88px;
+        border: 2px solid #AACE9B;
+        border-radius: 5px;
+    }
 }
