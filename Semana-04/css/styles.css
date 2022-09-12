@@ -4,8 +4,8 @@
     font-family: 'Roboto', sans-serif;
     font-style: normal;
     font-weight: 400;
-    font-size: 3vw;
-    line-height: 3vw;
+    font-size: 12px;
+    line-height: 14px;
     color: #373867;
 }
 
@@ -17,9 +17,17 @@ h3 {
     width: fit-content;
     padding-bottom: 5px;
     border-bottom: 2px solid #AACE9B;
-    font-size: 4vw;
-    line-height: 4vw;
-    font-weight: 700;
-    color: #373867;
+    font-size: 14px;
+    line-height: 16px;
+    font-weight: 700; 
 }
+
+h4 {
+    padding-bottom: 15px;
+    font-weight: 700;
+}
+
+::placeholder {
+    color: #C4C4C4;
+  }
 

@@ -3,17 +3,26 @@
 }
 
 #why-use-content {
-    margin-top: 9px;
     display: flex;
+    align-items: center;
+    margin-top: 14px;
+}
+
+#why-use-list {
+    padding-left: 34px;
 }
 
 #why-use-list li {
-    padding-bottom: 20px;
+    margin-bottom: 20px;
     list-style-image: url("../../assets/img/WhyUseList.png");
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 400;
     color: #373867;
+}
+
+#why-use-list li:nth-last-child(1) {
+    margin: 0;
 }
 
 #image-connectivity {

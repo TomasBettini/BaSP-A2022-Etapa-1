@@ -1,0 +1,22 @@
+#history {
+    margin-top: 30px;
+    margin-left: 30px;
+}
+
+#history-elements {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    width: 331px;
+}
+
+#history-elements p {
+    text-align: justify;
+}
+
+#image-history {
+    width: 285px;
+    height: 155px;
+    margin-top: 20px;
+}

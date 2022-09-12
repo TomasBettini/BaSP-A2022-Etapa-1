@@ -1,0 +1,27 @@
+footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 90px;
+}
+
+#footer-social {
+    text-align: center;
+}
+
+#footer-social img {
+    padding-right: 6px;
+    width: 14px;
+    height: 14px;
+}
+
+#footer-text {
+    margin-top: 7px;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    color: #373867;
+}

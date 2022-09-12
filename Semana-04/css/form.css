@@ -1,0 +1,52 @@
+#form {
+    margin-top: 30px;
+    margin-left: 30px;
+}
+
+#form-information {
+    display: flex;
+    flex-direction: column;
+}
+
+#form-information input[type="text"], #form-information textarea, #form-information select {
+    border: 1px solid #AACE9B;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 15px;
+    padding: 8px;
+}
+
+#form-information input[type="text"], #form-information select, #form-information textarea {
+    width: 300px;
+    color: #C4C4C4;
+} 
+
+#form-information textarea {
+    padding-bottom: 72px;
+}
+
+#form-buttoms {
+    align-self: flex-end;
+    margin-right: 36px;
+    margin-top: 20px;
+}
+
+#cancel-buttom {
+    margin-right: 15px;
+    padding: 10px 24px;
+    background: #FFFFFF;
+    border: 1px solid #AACE9B;
+    border-radius: 5px;
+    font-weight: 500;
+    color: #AACE9B;
+}
+
+#send-buttom {
+    padding: 10px 24px;
+    background: #AACE9B;
+    border: none;
+    border-radius: 5px;
+    font-weight: 500;
+    text-align: center;
+    color: #FFFFFF;
+}
