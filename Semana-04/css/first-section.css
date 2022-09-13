@@ -72,26 +72,28 @@
         flex-wrap: wrap;
         height: 445px;
         align-items: flex-start;
-        margin-left: 28px;
     }
     #first-section p {
         order: 0;
     }
     .title {
         margin-top: 65px;
+        margin-left: 28px;
         font-size: 48px;
         line-height: 56px;
         letter-spacing: 0.3em;
     }
     .subtitle {
         margin-top: 37px;
+        margin-left: 28px;
         font-size: 24px;
         line-height: 28px;
         text-transform: uppercase;
     }
     .text {
-        width: 617px;
+        width: 582px;
         margin-top: 36px;
+        margin-left: 28px;
         font-size: 24px;
         line-height: 28px;
         text-align: start;
@@ -99,6 +101,7 @@
     .button {
         display: block;
         margin-top: 36px;
+        margin-left: 28px;
         padding: 27px 36px;
         border: 3px solid #AACE9B;
         border-radius: 5px;
@@ -113,6 +116,7 @@
         width: 458px;
         height: 449px;
         margin-top: 65px;
+        margin-right: 35px;
     }
 }
 
