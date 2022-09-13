@@ -16,8 +16,11 @@ The steps to perform are:
 We work on the creation of the index.html file.
 
 ### Week 03
-We add styles to the project creating css folder with this files:
+In this week, we apply styles to the html created last week to make it look like the figma screenflow, with the learned properties, but without using flexbox. We add styles to the project creating css folder with this files:
 + [reset.css](https://github.com/TomasBettini/BaSP-A2022-Etapa-1/blob/master/Semana-03/css/reset.css) 
 + [style.css](https://github.com/TomasBettini/BaSP-A2022-Etapa-1/blob/master/Semana-03/css/style.css)
+
+### Week 04
+Now, we replicate the figma screenflow, but using flexbox as the main property, starting with the mobile first concept
 
 _By Tomas Bettini_
