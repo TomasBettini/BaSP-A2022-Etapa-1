@@ -49,3 +49,25 @@
         height: 210px;
     }
 }
+
+@media (min-width: 1512px) {
+    #why-use {
+        margin-left: 28px;
+        margin-top: 49px;
+    }
+    #why-use-content {
+        margin-top: 44px;
+    }
+    #why-use-list {
+        padding-left: 143px;
+    }
+    #why-use-list li {
+        margin-bottom: 42px;
+        padding-left: 31px;
+        font-weight: 700;
+    }
+    #image-connectivity {
+        width: 331px;
+        height: 241px;
+    }
+}

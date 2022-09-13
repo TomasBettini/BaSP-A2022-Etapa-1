@@ -39,3 +39,15 @@
         background-size: 20px 20px;
     }
 }
+
+@media (min-width: 1512px) {
+    #header {
+        height: 126px;
+    }
+    #header img {
+        display: none;
+    }
+    #header input {
+        background: #D8E7EB url(../../assets/img/Button\ Search.png) no-repeat 3% center;
+    }
+}

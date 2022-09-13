@@ -91,3 +91,20 @@
         line-height: 17px;
     }
 }
+
+@media (min-width: 1512px) {
+    #form {
+        margin-left: 28px;
+        margin-top: 142px;
+    }
+    #form-information input[type="text"], #form-information select, #form-information textarea {
+        width: 659px;
+    } 
+    #form-buttoms {
+        margin-right: 411px;
+    }
+    #form-buttoms input {
+        width: 135px;
+        height: 50px;
+    }
+}

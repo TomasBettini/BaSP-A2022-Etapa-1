@@ -2,7 +2,6 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-    padding-top: 30px;
     width: 100%;
 }
 
@@ -16,17 +15,14 @@
 
 .title {
     margin-top: 5px;
-    font-style: normal;
     font-weight: 700;
     font-size: 40px;
     line-height: 47px;
     text-transform: uppercase;
-    color: #373867;
 }
 
 .subtitle {
     margin-top: 5px;
-    font-style: normal;
     font-weight: 700;
     color: #AACE9B;
 }
@@ -35,9 +31,6 @@
     width: 283px;
     margin-top: 5px;
     text-align: center;
-    font-style: normal;
-    font-weight: 400;
-    color: #373867;
 }
 
 .button {
@@ -51,9 +44,6 @@
 }
 
 @media (min-width: 834px) {
-    #first-section {
-        padding-top: 92px;
-    }
     .title {
         margin-top: 62px;
         font-size: 68px;
@@ -76,3 +66,52 @@
         margin-top: 12px;
     }
 }
+
+@media (min-width: 1512px) {
+    #first-section {
+        flex-wrap: wrap;
+        height: 445px;
+        align-items: flex-start;
+        margin-left: 28px;
+    }
+    #first-section p {
+        order: 0;
+    }
+    .title {
+        margin-top: 65px;
+        font-size: 48px;
+        line-height: 56px;
+        letter-spacing: 0.3em;
+    }
+    .subtitle {
+        margin-top: 37px;
+        font-size: 24px;
+        line-height: 28px;
+        text-transform: uppercase;
+    }
+    .text {
+        width: 617px;
+        margin-top: 36px;
+        font-size: 24px;
+        line-height: 28px;
+        text-align: start;
+    }
+    .button {
+        display: block;
+        margin-top: 36px;
+        padding: 27px 36px;
+        border: 3px solid #AACE9B;
+        border-radius: 5px;
+        text-transform: uppercase;
+        font-weight: 500;
+        font-size: 15px;
+        line-height: 18px;
+        color: #AACE9B;
+    }
+    #working {
+        width: 458px;
+        height: 449px;
+        margin-top: 65px;
+    }
+}
+

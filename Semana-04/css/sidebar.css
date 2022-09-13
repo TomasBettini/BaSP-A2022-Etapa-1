@@ -1,13 +1,65 @@
 #sidebar {
     display: none;
-    height: 100%;
-    width: 397px;
-    position: fixed;
-    top: 92px;
 }
 
 @media (min-width: 1512px){
     #sidebar {
         display: block;
+        position: fixed;
+        top: 126px;
+        height: 100%;
+        width: 397px;
+        padding-top: 80px;
+        border-right: 2px solid #BFBFBF;
+        background-color: #FFFFFF;
+    }
+    .sidebar-elements {
+        margin-bottom: 14px;
+        padding-left: 55px;
+    }
+    .sidebar-elements h2 {
+        width: fit-content;
+        padding-bottom: 32px;
+        border-bottom: 3px solid #AACE9B;
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 30px;
+        line-height: 35px;
+        color: #373867;
+    }
+    #sidebar-nav {
+        margin-top: 66px;
+    }
+    #sidebar-nav ul li {
+        margin-bottom: 36px;
+        padding-left: 55px;
+        padding-bottom: 36px;
+        border-bottom: 2px solid #cdcccc;
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 30px;
+        line-height: 35px;
+        color: #373867;
+    }
+    #sidebar-nav ul li a {
+        text-decoration: none;
+    }
+    .sidebar-contact {
+        display: flex;
+        padding-top: 16px;
+        padding-left: 55px;
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 25px;
+        line-height: 29px;
+        color: #373867;
+    }
+    .sidebar-contact img {
+        width: 29px;
+        height: 29px;
+        padding-right: 29px;
     }
 }

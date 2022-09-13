@@ -10,6 +10,7 @@
 }
 
 main {
+    padding-top: 30px;
     border-bottom: 3px solid #AACE9B;
 }
 
@@ -36,6 +37,9 @@ h4 {
         font-size: 24px;
         line-height: 28px;
     }
+    main {
+        padding-top: 92px;
+    }
     h3 {
         padding-bottom: 13px;
         border-bottom: 3px solid #AACE9B;
@@ -44,5 +48,17 @@ h4 {
     }
     h4 {
         padding-bottom: 35px;
+    }
+}
+
+@media (min-width: 1512px) {
+    main {
+        padding-top: 126px;
+        padding-left: 397px;
+        border-bottom: none;
+    }
+    footer {
+        margin-left: 397px;
+        border-top: 3px solid #AACE9B;
     }
 }

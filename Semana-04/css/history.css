@@ -42,3 +42,24 @@
         margin-top: 30px;
     }
 }
+
+@media (min-width: 1512px) {
+    #history {
+        margin-top: 208px;
+        margin-left: 28px;
+    }    
+    #history-elements {
+        flex-wrap: wrap;
+        height: 290px;
+        margin-top: 45px;
+        width: 560px;
+    }
+    #history-elements p {
+        text-align: start;
+    }
+    #image-history {
+        width: 456px;
+        height: 256px;
+        margin: 0 0 0 36px;
+    }
+}

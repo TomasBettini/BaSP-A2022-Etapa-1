@@ -56,3 +56,13 @@
         border-radius: 5px;
     }
 }
+
+@media (min-width: 1512px) {
+    #features {
+        margin-left: 28px;
+        margin-top: 176px;
+    }
+    .features-element {
+        width: 38%;
+    }
+}

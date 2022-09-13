@@ -35,3 +35,11 @@
         padding-right: 60px;
     }
 }
+
+@media (min-width: 1512px) {
+    #final-section {
+        margin-left: 98px;
+        margin-top: 146px;
+        margin-bottom: 95px;
+    }
+}
