@@ -12,6 +12,8 @@ The steps to perform are:
 + After that you should clone the repository using the command: git clone https://github.com/TomasBettini/BaSP-A2022-Etapa-1
 + When you have the files, you just have to double click on the index.html and then open it in your browser.
 
+Or if you just want to look at the project you can use the github pages tool by following this link: https://tomasbettini.github.io/BaSP-A2022-Etapa-1/Semana-04/index.html
+
 ### Week 02
 We work on the creation of the index.html file.
 
@@ -21,6 +23,6 @@ In this week, we apply styles to the html created last week to make it look like
 + [style.css](https://github.com/TomasBettini/BaSP-A2022-Etapa-1/blob/master/Semana-03/css/style.css)
 
 ### Week 04
-Now, we replicate the figma screenflow, but using flexbox as the main property, starting with the mobile first concept
+Now, we replicate the figma screenflow, but using flexbox as the main property, starting with the mobile first concept.
 
 _By Tomas Bettini_
