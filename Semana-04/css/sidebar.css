@@ -13,12 +13,10 @@
         border-right: 2px solid #BFBFBF;
         background-color: #FFFFFF;
     }
-    .sidebar-elements {
-        margin-bottom: 14px;
-        padding-left: 55px;
-    }
-    .sidebar-elements h2 {
+    #sidebar h2 {
         width: fit-content;
+        margin-bottom: 14px;
+        margin-left: 55px;
         padding-bottom: 32px;
         border-bottom: 3px solid #AACE9B;
         font-family: 'Roboto';
