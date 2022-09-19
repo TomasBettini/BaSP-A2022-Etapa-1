@@ -25,4 +25,7 @@ In this week, we apply styles to the html created last week to make it look like
 ### Week 04
 Now, we replicate the figma screenflow, but using flexbox as the main property, starting with the mobile first concept.
 
+### Week 05
+In this week, we learned some basic concepts about javascript, for which we did some practice exercises. The result of these can be viewed at: https://tomasbettini.github.io/BaSP-A2022-Etapa-1/Semana-05/index.html
+
 _By Tomas Bettini_
