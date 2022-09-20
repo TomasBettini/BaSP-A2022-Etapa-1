@@ -68,12 +68,12 @@ function validate(a, b) {
         alert(b + ' is not an integer');
         return false;
     }
-    return true
+    return true;
 }
 
 function suma4(a, b) {
     if (!validate(a, b)) {
-        return 'There is an error!'
+        return 'There is an error!';
     }
     return (a + b);
 }
