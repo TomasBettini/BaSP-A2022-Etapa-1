@@ -30,15 +30,9 @@
         margin-top: 16px;
         width: 742px;
     }
-    #history-elements p {
-        text-align: center;
-    }
-    #history-elements p:nth-last-child(2) {
-        display: none;
-    }
     #image-history {
-        width: 318px;
-        height: 142px;
+        width: 640px;
+        height: 251px;
         margin-top: 30px;
     }
 }
@@ -50,16 +44,15 @@
     }    
     #history-elements {
         flex-wrap: wrap;
-        height: 290px;
+        height: 365px;
         margin-top: 45px;
-        width: 560px;
     }
     #history-elements p {
-        text-align: start;
+        width: 535px;
     }
     #image-history {
-        width: 456px;
-        height: 256px;
-        margin: 0 0 0 36px;
+        width: 500px;
+        height: 280px;
+        margin: 30px 0 0 33px;
     }
 }
