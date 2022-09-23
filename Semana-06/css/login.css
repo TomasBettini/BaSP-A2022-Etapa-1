@@ -1,0 +1,138 @@
+main {
+    height: 845px;
+}
+
+#login {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    align-items: center;
+}
+
+#login-form {
+    width: 300px;
+}
+
+#login-form h1 {
+    margin-bottom: 30px;
+    text-align: center;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 25px;
+}
+
+.input-user {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.input-user > input {
+    padding: 10px 12px;
+    border: 1px solid #373867;
+    border-radius: 4px;
+}
+
+.input-user > label {
+    margin-bottom: 10px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+    color: #373867;
+}
+
+.user-account {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.user-account a {
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+}
+
+.user-account :nth-child(1) {
+    margin-top: 5px;
+}
+
+.user-account :nth-child(2) {
+    margin-top: 10px;
+}
+
+.login-button {
+    margin-top: 20px;
+    text-align: center;
+}
+
+#userButton {
+    align-items: center;
+    padding: 10px 36px;
+    font-weight: 500;
+    font-size: 10px;
+    line-height: 12px;
+    background: #AACE9B;
+    border: 5px;
+    border-radius: 5px;
+}
+
+@media (min-width: 834px) {
+    main {
+        height: 620px;
+    }
+    #login-form {
+        width: 400px;
+    }
+    #login-form h1 {
+        margin-bottom: 50px;
+        font-size: 28px;
+        line-height: 32px;
+    }
+    .input-user {
+        margin-bottom: 20px;
+    }
+    .input-user > label {
+        font-size: 20px;
+        line-height: 24px;
+    }
+    .user-account a {
+        font-size: 18px;
+        line-height: 20px;
+    }    
+    .login-button {
+        margin-top: 30px;
+    }
+    #userButton {
+        padding: 14px 55px;
+        font-size: 14px;
+        line-height: 16px;
+    }
+}
+
+@media (min-width: 1512px) {
+    main {
+        height: 585px;
+    }
+    #login-form h1 {
+        font-size: 30px;
+        line-height: 35px;
+    }
+    .input-user > label {
+        font-size: 22px;
+        line-height: 26px;
+    }
+    .user-account a {
+        font-size: 20px;
+        line-height: 22px;
+    }    
+    #userButton {
+        font-size: 16px;
+        line-height: 18px;
+    }
+}
