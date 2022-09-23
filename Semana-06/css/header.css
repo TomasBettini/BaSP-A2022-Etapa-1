@@ -1,0 +1,47 @@
+#header {
+    display: flex;
+    position: fixed;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 30px;
+    background-color: #AACE9B;
+}
+
+#burger {
+    margin-left: 10px;
+}
+
+#logo {
+    margin: auto;
+    padding-right: 19px;
+    height: 100%;
+}
+
+@media (min-width: 834px) {
+    #header {
+        height: 92px;
+    }
+    #burger {
+        width: 30px;
+        height: 30px;
+        margin-left: 33px;
+    }
+    #logo {
+        width: 300px;
+        padding-right: 53px;
+    }
+}
+
+@media (min-width: 1512px) {
+    #header {
+        height: 126px;
+    }
+    #burger {
+        display: none;
+    }
+    #logo {
+        width: 485px;
+        padding: 0;
+    }
+}

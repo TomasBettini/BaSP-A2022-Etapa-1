@@ -1,0 +1,73 @@
+#why-use {
+    margin-left: 30px;
+}
+
+#why-use-content {
+    display: flex;
+    align-items: center;
+    margin-top: 14px;
+}
+
+#why-use-list {
+    padding-left: 34px;
+}
+
+#why-use-list li {
+    margin-bottom: 20px;
+    list-style-image: url("../../assets/img/WhyUseList.png");
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    color: #373867;
+}
+
+#why-use-list li:nth-last-child(1) {
+    margin: 0;
+}
+
+#image-connectivity {
+    width: 130px;
+    height: 95px;
+}
+
+@media (min-width: 834px) {
+    #why-use {
+        margin-left: 39px;
+    }
+    #why-use-content {
+        margin-top: 30px;
+    }
+    #why-use-list {
+        padding-left: 74px;
+    }
+    #why-use-list li {
+        margin-bottom: 24px;
+        font-weight: 700;
+    }
+    #image-connectivity {
+        width: 300px;
+        height: 210px;
+    }
+}
+
+@media (min-width: 1512px) {
+    #why-use {
+        margin-left: 28px;
+        margin-top: 49px;
+    }
+    #why-use-content {
+        margin-top: 44px;
+    }
+    #why-use-list {
+        padding-left: 143px;
+    }
+    #why-use-list li {
+        margin-bottom: 42px;
+        padding-left: 31px;
+        font-weight: 700;
+    }
+    #image-connectivity {
+        width: 331px;
+        height: 241px;
+    }
+}
