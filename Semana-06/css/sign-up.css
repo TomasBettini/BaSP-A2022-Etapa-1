@@ -1,5 +1,5 @@
 main {
-    height: 1000px;
+    height: 1250px;
 }
 
 #sign-up {
@@ -32,7 +32,6 @@ main {
 
 .input-user > input {
     padding: 10px 12px;
-    border: 1px solid #373867;
     border-radius: 4px;
 }
 
@@ -76,9 +75,21 @@ main {
     border-radius: 5px;
 }
 
+.text-error {
+    margin-bottom: 5px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+    color: red;
+}
+
+.border-error {
+    border: 1px solid red;
+}
+
 @media (min-width: 834px) {
     main {
-        height: 950px;
+        height: 1300px;
     }
     #sign-up h1 {
         margin-bottom: 50px;
@@ -92,7 +103,7 @@ main {
         display: flex;
         flex-direction: column;
         flex-wrap: wrap;
-        height: 650px;
+        height: 670px;
         align-content: center;
     }
     .input-user {
@@ -104,34 +115,38 @@ main {
         line-height: 24px;
     }
     #user-account a {
-        font-size: 18px;
-        line-height: 20px;
+        font-size: 22px;
+        line-height: 24px;
     }    
     .sign-up-button {
         margin-top: 30px;
     }
     #user-button {
         padding: 14px 55px;
-        font-size: 14px;
-        line-height: 16px;
+        font-size: 16px;
+        line-height: 18px;
+    }
+    .text-error {
+        font-size: 24px;
+        line-height: 28px;
     }
 }
 
 @media (min-width: 1512px) {
     #sign-up h1 {
-        font-size: 28px;
-        line-height: 32px;
+        font-size: 30px;
+        line-height: 34px;
     }
     .input-user > label {
         font-size: 22px;
         line-height: 26px;
     }
     #user-account a {
-        font-size: 20px;
-        line-height: 22px;
+        font-size: 24px;
+        line-height: 28px;
     }    
     #user-button {
-        font-size: 16px;
-        line-height: 18px;
+        font-size: 20px;
+        line-height: 22px;
     }
 }
