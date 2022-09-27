@@ -145,6 +145,14 @@ window.onload = function () {
         return true; 
     }
 
+    // Validate date of birth
+    function validateDateOfBirth (value) {
+        if (value === "" || value.length > 10) {
+            return false;
+        }
+        return true;
+    }
+
     // Validate phone number
     function validatePhoneNumber (value) {
         if (value.length !== 10 || !validateOnlyNumbers(value)) {
@@ -251,7 +259,7 @@ window.onload = function () {
 
     // On blur event for date of birth
     userDateOfBirth.onblur = function () {
-        if (userDateOfBirth.value === "") {
+        if (!validateDateOfBirth(userDateOfBirth.value)) {
             userAccount.prepend(dateOfBirthDiv);
             userDateOfBirth.classList.add("border-error", "text-error");
         }
@@ -259,7 +267,7 @@ window.onload = function () {
 
     // On focus event for date of birth
     userDateOfBirth.onfocus = function () {
-        if (userDateOfBirth.value === "") {
+        if (!validateDateOfBirth(userDateOfBirth.value)) {
             dateOfBirthDiv.remove();
             userDateOfBirth.classList.remove("border-error", "text-error");
         }
@@ -400,7 +408,7 @@ window.onload = function () {
             error = true;
             errorMessage = errorMessage.concat("Wrong DNI\n");
         }
-        if (userDateOfBirth.value === "") {
+        if (!validateDateOfBirth(userDateOfBirth.value)) {
             userAccount.prepend(dateOfBirthDiv);
             userDateOfBirth.classList.add("border-error", "text-error");
             error = true;
