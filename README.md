@@ -28,4 +28,15 @@ Now, we replicate the figma screenflow, but using flexbox as the main property, 
 ### Week 05
 In this week, we learned some basic concepts about javascript, for which we did some practice exercises. The result of these can be viewed at: https://tomasbettini.github.io/BaSP-A2022-Etapa-1/Semana-05/index.html
 
+### Week 06
+We create the files login.html and sign-up.html so that the user can log in and register. To perform the validations we use the concepts learned from javascript. Also the styles were added with the login.css and sign-up.css files. You can see the codes here:
++ [login.html](https://github.com/TomasBettini/BaSP-A2022-Etapa-1/blob/master/Semana-06/views/login.html)
++ [sign-up.html](https://github.com/TomasBettini/BaSP-A2022-Etapa-1/blob/master/Semana-06/views/sign-up.html)
++ [login.css](https://github.com/TomasBettini/BaSP-A2022-Etapa-1/blob/master/Semana-06/css/login.css)
++ [sign-up.css](https://github.com/TomasBettini/BaSP-A2022-Etapa-1/blob/master/Semana-06/css/sign-up.css)
++ [login.js](https://github.com/TomasBettini/BaSP-A2022-Etapa-1/blob/master/Semana-06/javascript/login.js)
++ [sign-up.js](https://github.com/TomasBettini/BaSP-A2022-Etapa-1/blob/master/Semana-06/javascript/sign-up.js)
+
+Now you can see the project by browsing this link: https://tomasbettini.github.io/BaSP-A2022-Etapa-1/Semana-06/views/index.html
+
 _By Tomas Bettini_
