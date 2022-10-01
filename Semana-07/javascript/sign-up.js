@@ -17,17 +17,6 @@ window.onload = function () {
     var userAccount = document.getElementById("user-account");
 
     // Create elements
-    var nameDiv = document.createElement("div");
-    var lastNameDiv = document.createElement("div");
-    var dniDiv = document.createElement("div");
-    var dateOfBirthDiv = document.createElement("div");
-    var phoneNumberDiv = document.createElement("div");
-    var addressDiv = document.createElement("div");
-    var locationDiv = document.createElement("div");
-    var postalCodeDiv = document.createElement("div");
-    var emailDiv = document.createElement("div");
-    var passwordDiv = document.createElement("div");
-    var confirmPasswordDiv = document.createElement("div");
     var nameText = document.createElement("p");
     var lastNameText = document.createElement("p");
     var dniText = document.createElement("p");
@@ -39,17 +28,17 @@ window.onload = function () {
     var emailText = document.createElement("p");
     var passwordText = document.createElement("p");
     var confirmPasswordText = document.createElement("p");
-    nameText.innerHTML = "Wrong Name";
-    lastNameText.innerHTML = "Wrong Last Name";
-    dniText.innerHTML = "Wrong DNI";
-    dateOfBirthText.innerHTML = "Wrong Date of Birth";
-    phoneNumberText.innerHTML = "Wrong Phone Number";
-    addressText.innerHTML = "Wrong Address";
-    locationText.innerHTML = "Wrong Location";
-    postalCodeText.innerHTML = "Wrong Postal Code";
-    emailText.innerHTML = "Wrong Email";
-    passwordText.innerHTML = "Wrong Password";
-    confirmPasswordText.innerHTML = "Wrong Confirm Password";
+    nameText.innerHTML = "The name must only contain letters";
+    lastNameText.innerHTML = "The last name must only contain letters";
+    dniText.innerHTML = "The ID must have more than 7 numbers";
+    dateOfBirthText.innerHTML = "You must be over 18 years old";
+    phoneNumberText.innerHTML = "The phone number must have 10 numbers";
+    addressText.innerHTML = "The address must contain letters, numbers and a space in between";
+    locationText.innerHTML = "The location must contain letters";
+    postalCodeText.innerHTML = "The postal code must contain letters, numbers";
+    emailText.innerHTML = "Email format must be valid";
+    passwordText.innerHTML = "The password must contain numbers and letters";
+    confirmPasswordText.innerHTML = "Passwords do not match";
     nameText.classList.add("text-error");
     lastNameText.classList.add("text-error");
     dniText.classList.add("text-error");
@@ -61,35 +50,34 @@ window.onload = function () {
     emailText.classList.add("text-error");
     passwordText.classList.add("text-error");
     confirmPasswordText.classList.add("text-error");
-    nameDiv.prepend(nameText);
-    lastNameDiv.prepend(lastNameText);
-    dniDiv.prepend(dniText);
-    dateOfBirthDiv.prepend(dateOfBirthText);
-    phoneNumberDiv.prepend(phoneNumberText);
-    addressDiv.prepend(addressText);
-    locationDiv.prepend(locationText);
-    postalCodeDiv.prepend(postalCodeText);
-    emailDiv.prepend(emailText);
-    passwordDiv.prepend(passwordText);
-    confirmPasswordDiv.prepend(confirmPasswordText);
 
     // Validate inputs
     // Create functions 
-    function validateNumbersAndLetters (value) {
+    function hasNumbersAndLetters (value) {
         var error = false;
+        var hasNumber = false;
+        var hasLetter = false;
         for (var i = 0; i < value.length; i++) {
             if (value[i].charCodeAt() < 65 && isNaN(value[i]) || 
                 value[i].charCodeAt() > 90 && value[i].charCodeAt() < 97 || 
-                value[i].charCodeAt() > 122
-            ) {
+                value[i].charCodeAt() > 122) {
                 error = true;
                 break; 
             }
+            if (!isNaN(value[i])) {
+                hasNumber = true;
+                continue;
+            }
+            if (value[i].charCodeAt() >= 65 && value[i].charCodeAt() <= 90 ||
+                value[i].charCodeAt() >= 97 && value[i].charCodeAt() <= 122) {
+                hasLetter = true;
+                continue;
+            }
         }
-        if (error) {
+        if (error || !hasLetter || !hasNumber) {
             return false;
         }
-        return true; 
+        return true;
     }
 
     function validateOnlyLetters (value) {
@@ -121,22 +109,22 @@ window.onload = function () {
         return true; 
     }
 
-    // Function signUp
-    var url = "https://basp-m2022-api-rest-server.herokuapp.com/signup"
-    function signUp (name, lastName, dni, dob, phone, address, city, zip, email, password) {
-        url = url + "?name=" + name + "&lastName=" + lastName + "&dni=" + dni + "&dob=" + dob + "&phone=" + phone +
-        "&address=" + address + "&city=" + city + "&zip=" + zip + "&email=" + email + "&password=" + password;
-        fetch(url)
-        .then(function(response){
-            return response.json();
-        })
-        .then(function(res){
-            console.log(res);
-        })
-        .catch(function(error){
-            console.log(error);
-        })
-    }
+    // // Function signUp
+    // var url = "https://basp-m2022-api-rest-server.herokuapp.com/signup"
+    // function signUp (name, lastName, dni, dob, phone, address, city, zip, email, password) {
+    //     url = url + "?name=" + name + "&lastName=" + lastName + "&dni=" + dni + "&dob=" + dob + "&phone=" + phone +
+    //     "&address=" + address + "&city=" + city + "&zip=" + zip + "&email=" + email + "&password=" + password;
+    //     fetch(url)
+    //     .then(function(response){
+    //         return response.json();
+    //     })
+    //     .then(function(res){
+    //         console.log(res);
+    //     })
+    //     .catch(function(error){
+    //         console.log(error);
+    //     })
+    // }
 
     // Validate name
     function validateName (value) {
@@ -156,7 +144,7 @@ window.onload = function () {
 
     // Validate DNI
     function validateDni (value) {
-        if (value.length < 8 || !validateOnlyNumbers(value)) {
+        if (value.length !== 8 || !validateOnlyNumbers(value)) {
             return false;
         }
         return true; 
@@ -164,8 +152,9 @@ window.onload = function () {
 
     // Validate date of birth
     function validateDateOfBirth (value) {
-        var year = value.split("-");
-        if (value === "" || year[0] > 2004 || year[0] < 1900) {
+        var splitvalue = value.split("-");
+        var year = splitvalue[0];
+        if (value === "" || year > 2004 || year < 1900) {
             return false;
         }
         return true;
@@ -181,7 +170,7 @@ window.onload = function () {
 
     // Validate address
     function validateAddress (value) {
-        if (value.length < 4 || !value.trim().includes(" ") || !validateNumbersAndLetters(value)) {
+        if (value.length < 4 || !value.trim().includes(" ") || !hasNumbersAndLetters(value)) {
             return false;
         }
         return true; 
@@ -189,7 +178,7 @@ window.onload = function () {
 
     // Validate location
     function validateLocation (value) {
-        if (value.length < 4 || !validateNumbersAndLetters(value)) {
+        if (value.length < 4 || !value.trim().includes(" ") || !hasNumbersAndLetters(value)) {
             return false;
         }
         return true; 
@@ -213,7 +202,7 @@ window.onload = function () {
 
     // Validate password
     function validatePassword (value) {
-        if (value.length < 8 || !validateNumbersAndLetters(value)) {
+        if (value.length < 8 || !hasNumbersAndLetters(value)) {
             return false;
         }
         return true; 
@@ -221,7 +210,7 @@ window.onload = function () {
 
     // Validate confirm password
     function validateConfirmPassword (value) {
-        if (value.length < 8 || !validateNumbersAndLetters(value) || value !== userPassword.value) {
+        if (value.length < 8 || !hasNumbersAndLetters(value) || value !== userPassword.value) {
             return false;
         }
         return true; 
@@ -230,7 +219,7 @@ window.onload = function () {
     // On blur event for name
     userName.onblur = function () {
         if (!validateName(userName.value)) {
-            userAccount.prepend(nameDiv);
+            userName.parentNode.appendChild(nameText);
             userName.classList.add("border-error", "text-error");
         }
     }
@@ -238,7 +227,7 @@ window.onload = function () {
     // On focus event for name
     userName.onfocus = function () {
         if (!validateName(userName.value)) {
-            nameDiv.remove();
+            nameText.remove();
             userName.classList.remove("border-error", "text-error");
         }
     }
@@ -246,7 +235,7 @@ window.onload = function () {
     // On blur event for last name
     userLastName.onblur = function () {
         if (!validateLastName(userLastName.value)) {
-            userAccount.prepend(lastNameDiv);
+            userLastName.parentNode.appendChild(lastNameText);
             userLastName.classList.add("border-error", "text-error");
         }
     }
@@ -254,7 +243,7 @@ window.onload = function () {
     // On focus event for last name
     userLastName.onfocus = function () {
         if (!validateLastName(userLastName.value)) {
-            lastNameDiv.remove();
+            lastNameText.remove();
             userLastName.classList.remove("border-error", "text-error");
         }
     }
@@ -262,7 +251,7 @@ window.onload = function () {
     // On blur event for DNI
     userDNI.onblur = function () {
         if (!validateDni(userDNI.value)) {
-            userAccount.prepend(dniDiv);
+            userDNI.parentNode.appendChild(dniText);
             userDNI.classList.add("border-error", "text-error");
         }
     }
@@ -270,7 +259,7 @@ window.onload = function () {
     // On focus event for DNI
     userDNI.onfocus = function () {
         if (!validateDni(userDNI.value)) {
-            dniDiv.remove();
+            dniText.remove();
             userDNI.classList.remove("border-error", "text-error");
         }
     }
@@ -278,7 +267,7 @@ window.onload = function () {
     // On blur event for date of birth
     userDateOfBirth.onblur = function () {
         if (!validateDateOfBirth(userDateOfBirth.value)) {
-            userAccount.prepend(dateOfBirthDiv);
+            userDateOfBirth.parentNode.appendChild(dateOfBirthText);
             userDateOfBirth.classList.add("border-error", "text-error");
         }
         console.log(userDateOfBirth.value)
@@ -287,7 +276,7 @@ window.onload = function () {
     // On focus event for date of birth
     userDateOfBirth.onfocus = function () {
         if (!validateDateOfBirth(userDateOfBirth.value)) {
-            dateOfBirthDiv.remove();
+            dateOfBirthText.remove();
             userDateOfBirth.classList.remove("border-error", "text-error");
         }
     }
@@ -295,7 +284,7 @@ window.onload = function () {
     // On blur event for phone number
     userPhoneNumber.onblur = function () {
         if (!validatePhoneNumber(userPhoneNumber.value)) {
-            userAccount.prepend(phoneNumberDiv);
+            userPhoneNumber.parentNode.appendChild(phoneNumberText);
             userPhoneNumber.classList.add("border-error", "text-error");
         }
     }
@@ -303,7 +292,7 @@ window.onload = function () {
     // On focus event for phone number
     userPhoneNumber.onfocus = function () {
         if (!validatePhoneNumber(userPhoneNumber.value)) {
-            phoneNumberDiv.remove();
+            phoneNumberText.remove();
             userPhoneNumber.classList.remove("border-error", "text-error");
         }
     }
@@ -311,7 +300,7 @@ window.onload = function () {
     // On blur event for address
     userAddress.onblur = function () {
         if (!validateAddress(userAddress.value)) {
-            userAccount.prepend(addressDiv);
+            userAddress.parentNode.appendChild(addressText);
             userAddress.classList.add("border-error", "text-error");
         }
     }
@@ -319,7 +308,7 @@ window.onload = function () {
     // On focus event for address
     userAddress.onfocus = function () {
         if (!validateAddress(userAddress.value)) {
-            addressDiv.remove();
+            addressText.remove();
             userAddress.classList.remove("border-error", "text-error");
         }
     }
@@ -327,7 +316,7 @@ window.onload = function () {
     // On blur event for location
     userLocation.onblur = function () {
         if (!validateLocation(userLocation.value)) {
-            userAccount.prepend(locationDiv);
+            userLocation.parentNode.appendChild(locationText);
             userLocation.classList.add("border-error", "text-error");
         }
     }
@@ -335,7 +324,7 @@ window.onload = function () {
     // On focus event for location
     userLocation.onfocus = function () {
         if (!validateLocation(userLocation.value)) {
-            locationDiv.remove();
+            locationText.remove();
             userLocation.classList.remove("border-error", "text-error");
         }
     }
@@ -343,7 +332,7 @@ window.onload = function () {
     // On blur event for postal code
     userPostalCode.onblur = function () {
         if (!validatePostalCode(userPostalCode.value)) {
-            userAccount.prepend(postalCodeDiv);
+            userPostalCode.parentNode.appendChild(postalCodeText);
             userPostalCode.classList.add("border-error", "text-error");
         }
     }
@@ -351,7 +340,7 @@ window.onload = function () {
     // On focus event for postal code
     userPostalCode.onfocus = function () {
         if (!validatePostalCode(userPostalCode.value)) {
-            postalCodeDiv.remove();
+            postalCodeText.remove();
             userPostalCode.classList.remove("border-error", "text-error");
         }
     }
@@ -359,7 +348,7 @@ window.onload = function () {
     // On blur event for email
     userEmail.onblur = function () {
         if (!validateEmail(userEmail.value) || userEmail.value === "") {
-            userAccount.prepend(emailDiv);
+            userEmail.parentNode.appendChild(emailText);
             userEmail.classList.add("border-error", "text-error");
         }
     }
@@ -367,7 +356,7 @@ window.onload = function () {
     // On focus event for email
     userEmail.onfocus = function () {
         if (!validateEmail(userEmail.value)) {
-            emailDiv.remove();
+            emailText.remove();
             userEmail.classList.remove("border-error", "text-error");
         }
     }
@@ -375,7 +364,7 @@ window.onload = function () {
     // On blur event for password
     userPassword.onblur = function () {
         if (!validatePassword(userPassword.value)) {
-            userAccount.prepend(passwordDiv);
+            userPassword.parentNode.appendChild(passwordText);
             userPassword.classList.add("border-error", "text-error");
         }
     }
@@ -383,7 +372,7 @@ window.onload = function () {
     // On focus event for password
     userPassword.onfocus = function () {
         if (!validatePassword(userPassword.value)) {
-            passwordDiv.remove();
+            passwordText.remove();
             userPassword.classList.remove("border-error", "text-error");
         }
     }
@@ -391,7 +380,7 @@ window.onload = function () {
     // On blur event for confirm password
     userConfirmPassword.onblur = function () {
         if (!validateConfirmPassword(userConfirmPassword.value)) {
-            userAccount.prepend(confirmPasswordDiv);
+            userConfirmPassword.parentNode.appendChild(confirmPasswordText);
             userConfirmPassword.classList.add("border-error", "text-error");
         }
     }
@@ -399,7 +388,7 @@ window.onload = function () {
     // On focus event for password
     userConfirmPassword.onfocus = function () {
         if (!validateConfirmPassword(userConfirmPassword.value)) {
-            confirmPasswordDiv.remove();
+            confirmPasswordText.remove();
             userConfirmPassword.classList.remove("border-error", "text-error");
         }
     }
@@ -411,81 +400,81 @@ window.onload = function () {
         var errorMessage = "";
         if (!validateName(userName.value)) {
             userName.classList.add("border-error", "text-error");
-            userAccount.prepend(nameDiv);
+            userName.parentNode.appendChild(nameText);
             error = true;
             errorMessage = errorMessage.concat("Wrong Name\n");
         }
         if (!validateLastName(userLastName.value)) {
             userLastName.classList.add("border-error", "text-error");
-            userAccount.prepend(lastNameDiv);
+            userLastName.parentNode.appendChild(lastNameText);
             error = true;
             errorMessage = errorMessage.concat("Wrong Last Name\n");
         }
         if (!validateDni(userDNI.value)) {
             userDNI.classList.add("border-error", "text-error");
-            userAccount.prepend(dniDiv);
+            userDNI.parentNode.appendChild(dniText);
             error = true;
             errorMessage = errorMessage.concat("Wrong DNI\n");
         }
         if (!validateDateOfBirth(userDateOfBirth.value)) {
-            userAccount.prepend(dateOfBirthDiv);
+            userDateOfBirth.parentNode.appendChild(dateOfBirthText);
             userDateOfBirth.classList.add("border-error", "text-error");
             error = true;
             errorMessage = errorMessage.concat("Wrong Date of Birth\n")
         }
         if (!validatePhoneNumber(userPhoneNumber.value)) {
             userPhoneNumber.classList.add("border-error", "text-error");
-            userAccount.prepend(phoneNumberDiv);
+            userPhoneNumber.parentNode.appendChild(phoneNumberText);
             error = true;
             errorMessage = errorMessage.concat("Wrong Phone Number\n");
         }
         if (!validateAddress(userAddress.value)) {
             userAddress.classList.add("border-error", "text-error");
-            userAccount.prepend(addressDiv);
+            userAddress.parentNode.appendChild(addressText);
             error = true;
             errorMessage = errorMessage.concat("Wrong Address\n");
         }
         if (!validateLocation(userLocation.value)) {
             userLocation.classList.add("border-error", "text-error");
-            userAccount.prepend(locationDiv);
+            userLocation.parentNode.appendChild(locationText);
             error = true;
             errorMessage = errorMessage.concat("Wrong Location\n");
         }
         if (!validatePostalCode(userPostalCode.value)) {
             userPostalCode.classList.add("border-error", "text-error");
-            userAccount.prepend(postalCodeDiv);
+            userPostalCode.parentNode.appendChild(postalCodeText);
             error = true;
             errorMessage = errorMessage.concat("Wrong Postal Code\n");
         }
         if (!validateEmail(userEmail.value)) {
             userEmail.classList.add("border-error", "text-error");
-            userAccount.prepend(emailDiv);
+            userEmail.parentNode.appendChild(emailText);
             error = true;
             errorMessage = errorMessage.concat("Wrong Email\n");
         }
         if (!validatePassword(userPassword.value)) {
             userPassword.classList.add("border-error", "text-error");
-            userAccount.prepend(passwordDiv);
+            userPassword.parentNode.appendChild(passwordText);
             error = true;
             errorMessage = errorMessage.concat("Wrong Password\n");
         }
         if (!validateConfirmPassword(userConfirmPassword.value)) {
             userConfirmPassword.classList.add("border-error", "text-error");
-            userAccount.prepend(confirmPasswordDiv);
+            userConfirmPassword.parentNode.appendChild(confirmPasswordText);
             error = true;
             errorMessage = errorMessage.concat("Wrong Confirm Password");
         }
         if (error) {
             alert(errorMessage);
         } else {
-            // alert("Name: " + userName.value + "\nLast Name: " + userLastName.value + "\nDNI: " + userDNI.value
-            // + "\nDate of Birth: " + userDateOfBirth.value + "\nPhone Number: " + userPhoneNumber.value 
-            // + "\nAddress: " + userAddress.value + "\nLocation: " + userLocation.value + "\nPostal Code: " + userPostalCode.value
-            // + "\nEmail: " + userEmail.value + "\nPassword: " + userPassword.value
-            // + "\nConfirm Password: " + userConfirmPassword.value);
-            // alert("Email: " + userEmail.value + "\nPassword: " + userPassword.value);
-            signUp(userName.value, userLastName.value, userDNI.value, userDateOfBirth.value, userPhoneNumber. value,
-            userAddress.value, userLocation.value, userPostalCode.value, userEmail.value, userPassword.value);
+            alert("Name: " + userName.value + "\nLast Name: " + userLastName.value + "\nDNI: " + userDNI.value
+            + "\nDate of Birth: " + userDateOfBirth.value + "\nPhone Number: " + userPhoneNumber.value 
+            + "\nAddress: " + userAddress.value + "\nLocation: " + userLocation.value + "\nPostal Code: " + userPostalCode.value
+            + "\nEmail: " + userEmail.value + "\nPassword: " + userPassword.value
+            + "\nConfirm Password: " + userConfirmPassword.value);
+            alert("Email: " + userEmail.value + "\nPassword: " + userPassword.value);
+            // signUp(userName.value, userLastName.value, userDNI.value, userDateOfBirth.value, userPhoneNumber. value,
+            // userAddress.value, userLocation.value, userPostalCode.value, userEmail.value, userPassword.value);
         }
     }
 }
