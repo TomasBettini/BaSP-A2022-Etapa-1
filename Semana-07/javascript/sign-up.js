@@ -80,6 +80,27 @@ window.onload = function () {
         return true;
     }
 
+    function hasLettersContainNumbers (value) {
+        var error = false;
+        var hasLetter = false;
+        for (var i = 0; i < value.length; i++) {
+            if (value[i].charCodeAt() < 65 && isNaN(value[i]) || 
+                value[i].charCodeAt() > 90 && value[i].charCodeAt() < 97 || 
+                value[i].charCodeAt() > 122) {
+                error = true;
+                break; 
+            }
+            if (value[i].charCodeAt() >= 65 && value[i].charCodeAt() <= 90 ||
+                value[i].charCodeAt() >= 97 && value[i].charCodeAt() <= 122) {
+                hasLetter = true;
+            }
+        }
+        if (error || !hasLetter) {
+            return false;
+        }
+        return true;
+    }
+
     function validateOnlyLetters (value) {
         var error = false;
         for (var i = 0; i < value.length; i++) {
@@ -109,7 +130,7 @@ window.onload = function () {
         return true; 
     }
 
-    // // Function signUp
+    // Function signUp
     // var url = "https://basp-m2022-api-rest-server.herokuapp.com/signup"
     // function signUp (name, lastName, dni, dob, phone, address, city, zip, email, password) {
     //     url = url + "?name=" + name + "&lastName=" + lastName + "&dni=" + dni + "&dob=" + dob + "&phone=" + phone +
@@ -178,7 +199,7 @@ window.onload = function () {
 
     // Validate location
     function validateLocation (value) {
-        if (value.length < 4 || !value.trim().includes(" ") || !hasNumbersAndLetters(value)) {
+        if (value.length < 4 || !hasLettersContainNumbers(value)) {
             return false;
         }
         return true; 

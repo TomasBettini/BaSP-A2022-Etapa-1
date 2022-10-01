@@ -58,25 +58,25 @@ window.onload = function () {
     }
 
     // Function login
-    // var url = "https://basp-m2022-api-rest-server.herokuapp.com/login"
-    // function login (email, password) {
-    //     url = url + "?email=" + email + "&password=" + password;
-    //     fetch(url)
-    //     .then(function(response){
-    //         return response.json();
-    //     })
-    //     .then(function(res){
-    //         if (res.success) {
-    //             alert("Welcome " + email + "\n" + "The result of your request: " + res.msg);
-    //         } else {
-    //             alert("Error!\n" + "The result of your request: " + res.msg)
-    //         }
-    //     })
-    //     .catch(function(error){
-    //         console.log(error);
-    //         alert(error);
-    //     })
-    // }
+    var url = "https://basp-m2022-api-rest-server.herokuapp.com/login"
+    function login (email, password) {
+        url = url + "?email=" + email + "&password=" + password;
+        fetch(url)
+        .then(function(response){
+            return response.json();
+        })
+        .then(function(res){
+            if (res.success) {
+                alert("Welcome " + email + "\n" + "The result of your request: " + res.msg);
+            } else {
+                alert("Error!\n" + "The result of your request: " + res.msg)
+            }
+        })
+        .catch(function(error){
+            console.log(error);
+            alert(error);
+        })
+    }
     
     // On blur event for email
     userEmail.onblur = function () {
