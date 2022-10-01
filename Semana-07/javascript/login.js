@@ -5,19 +5,14 @@ window.onload = function () {
     var emailExpression = /^[^@]+@[^@]+\.[a-zA-Z]{2,}$/;
     var userPassword = document.getElementById("user-password");
     var button = document.getElementById("user-button");
-    var userAccount = document.getElementById("user-account");
 
     // Create elements
-    var emailDiv = document.createElement("div");
-    var passwordDiv = document.createElement("div");
     var emailText = document.createElement("p");
     var passwordText = document.createElement("p");
-    emailText.innerHTML = "Wrong Email";
-    passwordText.innerHTML = "Wrong Password";
+    emailText.innerHTML = "Email format must be valid";
+    passwordText.innerHTML = "The password must contain numbers and letters";
     emailText.classList.add("text-error");
     passwordText.classList.add("text-error");
-    emailDiv.prepend(emailText);
-    passwordDiv.prepend(passwordText);
 
     // Validate email
     function validateEmail (value) {
@@ -30,6 +25,8 @@ window.onload = function () {
     // Validate password
     function validateNumberAndLetters (value) {
         var error = false;
+        var hasNumber = false;
+        var hasLetter = false;
         for (var i = 0; i < value.length; i++) {
             if (value[i].charCodeAt() < 65 && isNaN(value[i]) || 
                 value[i].charCodeAt() > 90 && value[i].charCodeAt() < 97 || 
@@ -37,11 +34,20 @@ window.onload = function () {
                 error = true;
                 break; 
             }
+            if (!isNaN(value[i])) {
+                hasNumber = true;
+                continue;
+            }
+            if (value[i].charCodeAt() >= 65 && value[i].charCodeAt() <= 90 ||
+                value[i].charCodeAt() >= 97 && value[i].charCodeAt() <= 122) {
+                hasLetter = true;
+                continue;
+            }
         }
-        if (error) {
+        if (error || !hasLetter || !hasNumber) {
             return false;
         }
-        return true; 
+        return true;
     }
 
     function validatePassword (value) {
@@ -50,11 +56,29 @@ window.onload = function () {
         }
         return true; 
     }
+
+    // Function login
+    var url = "https://basp-m2022-api-rest-server.herokuapp.com/login"
+    function login (email, password) {
+        url = url + "?email=" + email + "&password=" + password;
+        fetch(url)
+        .then(function(response){
+            return response.json();
+        })
+        .then(function(res){
+            console.log(res);
+            alert((res.msg) + "\nEmail: " + userEmail.value + "\nPassword: " + userPassword.value);
+        })
+        .catch(function(error){
+            console.log(error);
+            alert(error);
+        })
+    }
     
     // On blur event for email
     userEmail.onblur = function () {
         if (!validateEmail(userEmail.value) || userEmail.value === "") {
-            userAccount.prepend(emailDiv);
+            userEmail.parentNode.appendChild(emailText);
             userEmail.classList.add("border-error", "text-error");
         }
     }
@@ -62,7 +86,7 @@ window.onload = function () {
     // On focus event for email
     userEmail.onfocus = function () {
         if (!validateEmail(userEmail.value)) {
-            emailDiv.remove();
+            emailText.remove();
             userEmail.classList.remove("border-error", "text-error");
         }
     }
@@ -70,7 +94,7 @@ window.onload = function () {
     // On blur event for password
     userPassword.onblur = function () {
         if (!validatePassword(userPassword.value)) {
-            userAccount.prepend(passwordDiv);
+            userPassword.parentNode.appendChild(passwordText);
             userPassword.classList.add("border-error", "text-error");
         }
     }
@@ -78,7 +102,7 @@ window.onload = function () {
     // On focus event for password
     userPassword.onfocus = function () {
         if (!validatePassword(userPassword.value)){
-            passwordDiv.remove();
+            passwordText.remove();
             userPassword.classList.remove("border-error", "text-error");
         }
     }
@@ -90,20 +114,20 @@ window.onload = function () {
         e.preventDefault();
         if (!validateEmail(userEmail.value)) {
             userEmail.classList.add("border-error", "text-error");
-            userAccount.prepend(emailDiv);
+            userEmail.parentNode.appendChild(emailText);
             error = true;
             errorMessage = errorMessage.concat("Wrong Email\n");
         }
         if (!validatePassword(userPassword.value)) {
             userPassword.classList.add("border-error", "text-error");
-            userAccount.prepend(passwordDiv);
+            userPassword.parentNode.appendChild(passwordText);
             error = true;
             errorMessage = errorMessage.concat("Wrong Password");
         }
         if (error) {
             alert(errorMessage);
         } else {
-            alert("Email: " + userEmail.value + "\nPassword: " + userPassword.value);
+            login(userEmail.value, userPassword.value);
         }
     }
 }

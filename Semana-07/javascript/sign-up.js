@@ -121,6 +121,23 @@ window.onload = function () {
         return true; 
     }
 
+    // Function signUp
+    var url = "https://basp-m2022-api-rest-server.herokuapp.com/signup"
+    function signUp (name, lastName, dni, dob, phone, address, city, zip, email, password) {
+        url = url + "?name=" + name + "&lastName=" + lastName + "&dni=" + dni + "&dob=" + dob + "&phone=" + phone +
+        "&address=" + address + "&city=" + city + "&zip=" + zip + "&email=" + email + "&password=" + password;
+        fetch(url)
+        .then(function(response){
+            return response.json();
+        })
+        .then(function(res){
+            console.log(res);
+        })
+        .catch(function(error){
+            console.log(error);
+        })
+    }
+
     // Validate name
     function validateName (value) {
         if (value.length < 4 || !validateOnlyLetters(value)) {
@@ -147,7 +164,8 @@ window.onload = function () {
 
     // Validate date of birth
     function validateDateOfBirth (value) {
-        if (value === "") {
+        var year = value.split("-");
+        if (value === "" || year[0] > 2004 || year[0] < 1900) {
             return false;
         }
         return true;
@@ -259,8 +277,7 @@ window.onload = function () {
 
     // On blur event for date of birth
     userDateOfBirth.onblur = function () {
-        var year = userDateOfBirth.value.split("-"); 
-        if (!validateDateOfBirth(userDateOfBirth.value) || year[0]>2004 || year[0]<1900) {
+        if (!validateDateOfBirth(userDateOfBirth.value)) {
             userAccount.prepend(dateOfBirthDiv);
             userDateOfBirth.classList.add("border-error", "text-error");
         }
@@ -269,8 +286,7 @@ window.onload = function () {
 
     // On focus event for date of birth
     userDateOfBirth.onfocus = function () {
-        var year = userDateOfBirth.value.split("-");
-        if (!validateDateOfBirth(userDateOfBirth.value) || year[0]<1900 || year[0]>2004) {
+        if (!validateDateOfBirth(userDateOfBirth.value)) {
             dateOfBirthDiv.remove();
             userDateOfBirth.classList.remove("border-error", "text-error");
         }
@@ -462,11 +478,14 @@ window.onload = function () {
         if (error) {
             alert(errorMessage);
         } else {
-            alert("Name: " + userName.value + "\nLast Name: " + userLastName.value + "\nDNI: " + userDNI.value
-            + "\nDate of Birth: " + userDateOfBirth.value + "\nPhone Number: " + userPhoneNumber.value 
-            + "\nAddress: " + userAddress.value + "\nLocation: " + userLocation.value + "\nPostal Code: " + userPostalCode.value
-            + "\nEmail: " + userEmail.value + "\nPassword: " + userPassword.value
-            + "\nConfirm Password: " + userConfirmPassword.value);
+            // alert("Name: " + userName.value + "\nLast Name: " + userLastName.value + "\nDNI: " + userDNI.value
+            // + "\nDate of Birth: " + userDateOfBirth.value + "\nPhone Number: " + userPhoneNumber.value 
+            // + "\nAddress: " + userAddress.value + "\nLocation: " + userLocation.value + "\nPostal Code: " + userPostalCode.value
+            // + "\nEmail: " + userEmail.value + "\nPassword: " + userPassword.value
+            // + "\nConfirm Password: " + userConfirmPassword.value);
+            // alert("Email: " + userEmail.value + "\nPassword: " + userPassword.value);
+            signUp(userName.value, userLastName.value, userDNI.value, userDateOfBirth.value, userPhoneNumber. value,
+            userAddress.value, userLocation.value, userPostalCode.value, userEmail.value, userPassword.value);
         }
     }
 }
