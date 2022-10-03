@@ -14,7 +14,6 @@ window.onload = function () {
     var userPassword = document.getElementById("user-password");
     var userConfirmPassword = document.getElementById("user-confirm-password");
     var button = document.getElementById("user-button");
-    var userAccount = document.getElementById("user-account");
 
     // Create elements
     var nameText = document.createElement("p");
@@ -30,7 +29,7 @@ window.onload = function () {
     var confirmPasswordText = document.createElement("p");
     nameText.innerHTML = "The name must only contain letters";
     lastNameText.innerHTML = "The last name must only contain letters";
-    dniText.innerHTML = "The ID must have more than 7 numbers";
+    dniText.innerHTML = "The ID must have 7 or 8 numbers";
     dateOfBirthText.innerHTML = "You must be over 18 years old";
     phoneNumberText.innerHTML = "The phone number must have 10 numbers";
     addressText.innerHTML = "The address must contain letters, numbers and a space in between";
@@ -131,21 +130,63 @@ window.onload = function () {
     }
 
     // Function signUp
-    // var url = "https://basp-m2022-api-rest-server.herokuapp.com/signup"
-    // function signUp (name, lastName, dni, dob, phone, address, city, zip, email, password) {
-    //     url = url + "?name=" + name + "&lastName=" + lastName + "&dni=" + dni + "&dob=" + dob + "&phone=" + phone +
-    //     "&address=" + address + "&city=" + city + "&zip=" + zip + "&email=" + email + "&password=" + password;
-    //     fetch(url)
-    //     .then(function(response){
-    //         return response.json();
-    //     })
-    //     .then(function(res){
-    //         console.log(res);
-    //     })
-    //     .catch(function(error){
-    //         console.log(error);
-    //     })
-    // }
+    function signUp (name, lastName, dni, dob, phone, address, city, zip, email, password) {
+    var url = "https://basp-m2022-api-rest-server.herokuapp.com/signup?name=" + name + "&lastName=" + lastName
+        + "&dni=" + dni + "&dob=" + dob + "&phone=" + phone + "&address=" + address + "&city=" + city 
+        + "&zip=" + zip + "&email=" + email + "&password=" + password;
+        fetch(url)
+        .then(function(response) {
+            return response.json();
+        })
+        .then(function(res) {
+            if (res.success) {
+                saveLocalStorage(res);
+                alert("Successful request: " + res.msg + "\nName: " + name + "\nLast Name: " + lastName + "\nDNI: " + dni +
+                "\nDate of Birth: " + dob + "\nPhone Number: " + phone + "\nAddress: " + address +
+                "\nLocation: " + city + "\nPostal Code: " + zip + "\nEmail: " + email + "\nPassword: " + password);
+            } else {
+                alert("Error request: " + res.msg + "\nPlease check your information:" + "\nName: " + name + "\nLast Name: " +
+                lastName + "\nDNI: " + dni + "\nDate of Birth: " + dob + "\nPhone Number: " + phone +
+                "\nAddress: " + address + "\nLocation: " + city + "\nPostal Code: " + zip + 
+                "\nEmail: " + email + "\nPassword: " + password);
+            }
+        })
+        .catch(function(error) {
+            alert("Error!\n" + error);
+        })
+    }
+    
+    // Function save in local storage
+    function saveLocalStorage (res) {
+        localStorage.setItem("name", res.data.name);
+        localStorage.setItem("lastName", res.data.lastName);
+        localStorage.setItem("dni", res.data.dni);
+        localStorage.setItem("dob", res.data.dob);
+        localStorage.setItem("phone", res.data.phone);
+        localStorage.setItem("address", res.data.address);
+        localStorage.setItem("city", res.data.city);
+        localStorage.setItem("zip", res.data.zip);
+        localStorage.setItem("email", res.data.email);
+        localStorage.setItem("password", res.data.password);
+        localStorage.setItem("confirmPassword", userConfirmPassword.value);
+    }
+    
+    // Set values of local storage in the form
+    function formValues () {
+        var correctDob = localStorage.getItem("dob");
+        var correctDobSplit = correctDob.split("/");
+        userName.value = localStorage.getItem("name");
+        userLastName.value = localStorage.getItem("lastName");
+        userDNI.value = localStorage.getItem("dni");
+        userDateOfBirth.value = correctDobSplit[2] + "-" + correctDobSplit[0] + "-" + correctDobSplit[1];
+        userPhoneNumber.value = localStorage.getItem("phone");
+        userAddress.value = localStorage.getItem("address");
+        userLocation.value = localStorage.getItem("city");
+        userPostalCode.value = localStorage.getItem("zip");
+        userEmail.value = localStorage.getItem("email");
+        userPassword.value = localStorage.getItem("password");
+        userConfirmPassword.value = localStorage.getItem("confirmPassword");
+    }
 
     // Validate name
     function validateName (value) {
@@ -165,16 +206,20 @@ window.onload = function () {
 
     // Validate DNI
     function validateDni (value) {
-        if (value.length !== 8 || !validateOnlyNumbers(value)) {
+        if (value.length !== 7 && value.length !== 8 || !validateOnlyNumbers(value)) {
             return false;
         }
         return true; 
     }
 
     // Validate date of birth
+    var newDate = "";
     function validateDateOfBirth (value) {
         var splitvalue = value.split("-");
         var year = splitvalue[0];
+        var month = splitvalue[1];
+        var day = splitvalue[2];
+        newDate = month + "/" + day + "/" + year;
         if (value === "" || year > 2004 || year < 1900) {
             return false;
         }
@@ -291,7 +336,6 @@ window.onload = function () {
             userDateOfBirth.parentNode.appendChild(dateOfBirthText);
             userDateOfBirth.classList.add("border-error", "text-error");
         }
-        console.log(userDateOfBirth.value)
     }
 
     // On focus event for date of birth
@@ -413,6 +457,9 @@ window.onload = function () {
             userConfirmPassword.classList.remove("border-error", "text-error");
         }
     }
+
+    // Complete the form with the information of the local storage
+    formValues();
     
     // On click event for button sign in
     button.onclick = function (e) {
@@ -488,14 +535,8 @@ window.onload = function () {
         if (error) {
             alert(errorMessage);
         } else {
-            alert("Name: " + userName.value + "\nLast Name: " + userLastName.value + "\nDNI: " + userDNI.value
-            + "\nDate of Birth: " + userDateOfBirth.value + "\nPhone Number: " + userPhoneNumber.value 
-            + "\nAddress: " + userAddress.value + "\nLocation: " + userLocation.value + "\nPostal Code: " + userPostalCode.value
-            + "\nEmail: " + userEmail.value + "\nPassword: " + userPassword.value
-            + "\nConfirm Password: " + userConfirmPassword.value);
-            alert("Email: " + userEmail.value + "\nPassword: " + userPassword.value);
-            // signUp(userName.value, userLastName.value, userDNI.value, userDateOfBirth.value, userPhoneNumber. value,
-            // userAddress.value, userLocation.value, userPostalCode.value, userEmail.value, userPassword.value);
+            signUp(userName.value, userLastName.value, userDNI.value, newDate, userPhoneNumber.value,
+            userAddress.value, userLocation.value, userPostalCode.value, userEmail.value, userPassword.value);
         }
     }
 }
