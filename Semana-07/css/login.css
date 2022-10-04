@@ -86,6 +86,65 @@ main {
     border: 1px solid red;
 }
 
+.background-modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    background-color: #3f3e3e71;
+    width: 100vw;
+    height: 685px;
+}
+
+.modal-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 200px;
+    height: 80px;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: #AACE9B;
+}
+
+.modal-title-and-button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#close-modal {
+    float: right;
+    font-size: 14px;
+    text-align: right;
+    border: none;
+    background-color: #AACE9B;
+}
+
+#modal-text {
+    margin-top: 20px;
+    font-size: 12px;
+}
+
+#understand-button {
+    align-self: flex-end;
+    width: 80px;
+    height: 40px;
+    padding: 5px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+    font-weight: 500;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.show {
+    visibility: visible;
+}
+
 @media (min-width: 834px) {
     main {
         height: 585px;
@@ -121,6 +180,26 @@ main {
         font-size: 16px;
         line-height: 16px;
     }
+    .background-modal {
+        height: 838px;
+    }
+    .modal-container {
+        width: 300px;
+        height: 140px;
+    }
+    .modal-title-and-button {
+        font-size: 18px;
+    }
+    #close-modal {
+        font-size: 20px;
+    }
+    #modal-text {
+        font-size: 14px;
+    }
+    #understand-button {
+        width: 120px;
+        font-size: 14px;
+    }
 }
 
 @media (min-width: 1512px) {
@@ -139,5 +218,26 @@ main {
     #user-button {
         font-size: 20px;
         line-height: 22px;
+    }
+    .background-modal {
+        width: 1909px;
+        height: 1651px;
+    }
+    .modal-container {
+        width: 400px;
+        height: 180px;
+    }
+    .modal-title-and-button {
+        font-size: 24px;
+    }
+    #close-modal {
+        font-size: 26px;
+    }
+    #modal-text {
+        font-size: 20px;
+    }
+    #understand-button {
+        width: 160px;
+        font-size: 20px;
     }
 }

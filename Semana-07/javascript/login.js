@@ -5,6 +5,11 @@ window.onload = function () {
     var emailExpression = /^[^@]+@[^@]+\.[a-zA-Z]{2,}$/;
     var userPassword = document.getElementById("user-password");
     var button = document.getElementById("user-button");
+    var modal = document.getElementById("modal");
+    var modalTitle = document.getElementById("modal-title");
+    var buttonCloseModal = document.getElementById("close-modal");
+    var modalText = document.getElementById("modal-text");
+    var understandButton = document.getElementById("understand-button");
 
     // Create elements
     var emailText = document.createElement("p");
@@ -66,14 +71,31 @@ window.onload = function () {
         })
         .then(function(res) {
             if (res.success) {
-                alert("Welcome " + email + "\nThe result of your request: " + res.msg);
+                modalTitle.innerText = "Request completed successfully";
+                modalText.innerText = res.msg;
+                showModal();
             } else {
-                alert("Error!\n" + "The result of your request: " + res.msg)
+                modalTitle.innerText = "Error!";
+                modalText.innerText = res.msg;
+                showModal();
             }
         })
         .catch(function(error) {
-            alert("Error!\n" + error);
+            modalTitle.innerText = "Error!";
+            modalText.innerText = error;
+            showModal();
         })
+    }
+
+    // Modal functions
+    function showModal() {
+        modal.classList.remove("hidden");
+        modal.classList.add("show");
+    }
+
+    function closeModal() {
+        modal.classList.remove("show");
+        modal.classList.add("hidden");
     }
     
     // On blur event for email
@@ -108,6 +130,15 @@ window.onload = function () {
         }
     }
 
+    // On click event for modal
+    buttonCloseModal.onclick = function () {
+        closeModal();
+    }
+
+    understandButton.onclick = function () {
+        closeModal();
+    }
+
     // On click event for button login
     button.onclick = function (e) {
         var error = false;
@@ -126,7 +157,9 @@ window.onload = function () {
             errorMessage = errorMessage.concat("Wrong Password");
         }
         if (error) {
-            alert(errorMessage);
+            modalTitle.innerText = "Error";
+            modalText.innerText = errorMessage;
+            showModal();
         } else {
             login(userEmail.value, userPassword.value);
         }
