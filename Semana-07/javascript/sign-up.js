@@ -194,6 +194,12 @@ window.onload = function () {
     
     // Set values of local storage in the form
     function formValues () {
+        if (!localStorage.getItem("name") && !localStorage.getItem("lastName") && !localStorage.getItem("dni") &&
+            !localStorage.getItem("dob") && !localStorage.getItem("phone") && !localStorage.getItem("address") &&
+            !localStorage.getItem("city") && !localStorage.getItem("zip") && !localStorage.getItem("email") &&
+            !localStorage.getItem("password") && !localStorage.getItem("confirmPassword")) {
+            return true;
+        }
         var correctDob = localStorage.getItem("dob");
         var correctDobSplit = correctDob.split("/");
         userName.value = localStorage.getItem("name");
