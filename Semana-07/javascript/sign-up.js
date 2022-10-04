@@ -14,6 +14,11 @@ window.onload = function () {
     var userPassword = document.getElementById("user-password");
     var userConfirmPassword = document.getElementById("user-confirm-password");
     var button = document.getElementById("user-button");
+    var modal = document.getElementById("modal");
+    var modalTitle = document.getElementById("modal-title");
+    var buttonCloseModal = document.getElementById("close-modal");
+    var modalText = document.getElementById("modal-text");
+    var understandButton = document.getElementById("understand-button");
 
     // Create elements
     var nameText = document.createElement("p");
@@ -141,19 +146,35 @@ window.onload = function () {
         .then(function(res) {
             if (res.success) {
                 saveLocalStorage(res);
-                alert("Successful request: " + res.msg + "\nName: " + name + "\nLast Name: " + lastName + "\nDNI: " + dni +
+                modalTitle.innerText = "Successful request: " + res.msg
+                modalText.innerText = "\nName: " + name + "\nLast Name: " + lastName + "\nDNI: " + dni +
                 "\nDate of Birth: " + dob + "\nPhone Number: " + phone + "\nAddress: " + address +
-                "\nLocation: " + city + "\nPostal Code: " + zip + "\nEmail: " + email + "\nPassword: " + password);
+                "\nLocation: " + city + "\nPostal Code: " + zip + "\nEmail: " + email + "\nPassword: " + password;
+                showModal();
             } else {
-                alert("Error request: " + res.msg + "\nPlease check your information:" + "\nName: " + name + "\nLast Name: " +
-                lastName + "\nDNI: " + dni + "\nDate of Birth: " + dob + "\nPhone Number: " + phone +
-                "\nAddress: " + address + "\nLocation: " + city + "\nPostal Code: " + zip + 
-                "\nEmail: " + email + "\nPassword: " + password);
+                modalTitle.innerText = "Error request: " + res.msg
+                modalText.innerText = "\nPlease check your information:" + "\nName: " + name + "\nLast Name: " + lastName + "\nDNI: " + dni +
+                "\nDate of Birth: " + dob + "\nPhone Number: " + phone + "\nAddress: " + address +
+                "\nLocation: " + city + "\nPostal Code: " + zip + "\nEmail: " + email + "\nPassword: " + password;
+                showModal();
             }
         })
         .catch(function(error) {
-            alert("Error!\n" + error);
+            modalTitle.innerText = "Error!";
+            modalText.innerText = error;
+            showModal();
         })
+    }
+
+    // Modal functions
+    function showModal() {
+        modal.classList.remove("hidden");
+        modal.classList.add("show");
+    }
+
+    function closeModal() {
+        modal.classList.remove("show");
+        modal.classList.add("hidden");
     }
     
     // Function save in local storage
@@ -460,6 +481,15 @@ window.onload = function () {
 
     // Complete the form with the information of the local storage
     formValues();
+
+    // On click event for modal
+    buttonCloseModal.onclick = function () {
+        closeModal();
+    }
+
+    understandButton.onclick = function () {
+        closeModal();
+    }
     
     // On click event for button sign in
     button.onclick = function (e) {
@@ -532,8 +562,10 @@ window.onload = function () {
             error = true;
             errorMessage = errorMessage.concat("Wrong Confirm Password");
         }
-        if (error) {
-            alert(errorMessage);
+        if (error) {    
+            modalTitle.innerText = "Error";
+            modalText.innerText = errorMessage;
+            showModal();
         } else {
             signUp(userName.value, userLastName.value, userDNI.value, newDate, userPhoneNumber.value,
             userAddress.value, userLocation.value, userPostalCode.value, userEmail.value, userPassword.value);

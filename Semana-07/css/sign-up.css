@@ -88,6 +88,68 @@ main {
     border: 1px solid red;
 }
 
+.background-modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    background-color: #3f3e3e71;
+    width: 100vw;
+    height: 100vh;
+    bottom: 0;
+}
+
+.modal-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 250px;
+    height: 200px;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: #AACE9B;
+}
+
+.modal-title-and-button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+#close-modal {
+    float: right;
+    font-size: 14px;
+    text-align: right;
+    border: none;
+    background-color: #AACE9B;
+}
+
+#modal-text {
+    margin-top: 20px;
+    font-size: 12px;
+}
+
+#understand-button {
+    align-self: flex-end;
+    width: 80px;
+    height: 40px;
+    padding: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 5px;
+    font-weight: 500;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.show {
+    visibility: visible;
+}
+
 @media (min-width: 834px) {
     main {
         height: 1000px;
@@ -131,6 +193,24 @@ main {
         font-size: 10px;
         line-height: 10px;
     }
+    .modal-container {
+        width: 350px;
+        height: 300px;
+    }
+    .modal-title-and-button {
+        font-size: 18px;
+    }
+    #close-modal {
+        font-size: 20px;
+    }
+    #modal-text {
+        font-size: 14px;
+        line-height: 18px;
+    }
+    #understand-button {
+        width: 120px;
+        font-size: 14px;
+    }
 }
 
 @media (min-width: 1512px) {
@@ -160,5 +240,26 @@ main {
         font-size: 14px;
         line-height: 14px;
         width: 330px;
+    }
+    .background-modal {
+        right: 0;
+    }
+    .modal-container {
+        width: 550px;
+        height: 400px;
+    }
+    .modal-title-and-button {
+        font-size: 28px;
+    }
+    #close-modal {
+        font-size: 28px;
+    }
+    #modal-text {
+        font-size: 22px;
+        line-height: 26px;
+    }
+    #understand-button {
+        width: 200px;
+        font-size: 22px;
     }
 }
