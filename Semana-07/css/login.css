@@ -93,7 +93,8 @@ main {
     position: fixed;
     background-color: #3f3e3e71;
     width: 100vw;
-    height: 685px;
+    height: 100vh;
+    top: 0;
 }
 
 .modal-container {
@@ -180,9 +181,6 @@ main {
         font-size: 16px;
         line-height: 16px;
     }
-    .background-modal {
-        height: 838px;
-    }
     .modal-container {
         width: 300px;
         height: 140px;
@@ -220,11 +218,10 @@ main {
         line-height: 22px;
     }
     .background-modal {
-        width: 1909px;
-        height: 1651px;
+        right: 0;
     }
     .modal-container {
-        width: 400px;
+        width: 500px;
         height: 180px;
     }
     .modal-title-and-button {
